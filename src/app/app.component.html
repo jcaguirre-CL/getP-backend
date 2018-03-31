@@ -1,4 +1,4 @@
-<div class="wrapper" align="center">
+<!-- <div class="wrapper" align="center">
   <mat-card class="card-central">
   <mat-toolbar color="primary">
       <mat-toolbar-row>
@@ -13,4 +13,45 @@
             <router-outlet></router-outlet>
     </div>
   </mat-card>
+</div> -->
+
+
+<div class="example-container">
+
+  <mat-sidenav-container class="example-container">
+      <!-- <mat-sidenav-container class="example-container" *ngIf="shouldRun"> -->
+    <mat-sidenav #sidenav [mode]="mode.value">
+        <button mat-icon-button (click)="sidenav.toggle()"><mat-icon>menu</mat-icon></button>
+            <mat-toolbar color="primary">
+                <mat-toolbar-row>
+                  <button mat-button routerLinkActive="active" routerLink="/inicio" (click)="toggle()">Inicio</button>
+                </mat-toolbar-row>
+                <mat-toolbar-row>
+                    <button mat-button routerLinkActive="active" routerLink="/crear" (click)="toggle()">Crear Domo</button>
+                  </mat-toolbar-row>
+                  <mat-toolbar-row>
+                      <button mat-button routerLinkActive="active" routerLink="/actualizar" (click)="toggle()">Actualizar Estado Domo</button>
+                    </mat-toolbar-row>
+                    <mat-toolbar-row>
+                        <button mat-button routerLinkActive="active" routerLink="/revisar" (click)="toggle()">Revisar Estado Domo</button>
+                      </mat-toolbar-row>
+              </mat-toolbar>
+      <!-- <p><button mat-button (click)="sidenav.toggle()">Toggle</button></p> -->
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+        <!-- <p><button mat-button (click)="sidenav.toggle()">Toggle</button></p> -->
+
+      <mat-card class="card-central">
+        <mat-toolbar color="primary" class="example-toolbar">
+          <button mat-icon-button (click)="sidenav.toggle()"><mat-icon>menu</mat-icon></button>
+          <h1 class="example-app-name">GetParking is rocking!!</h1>
+        </mat-toolbar>
+        <div class="wrapper" align="center" [@routerTransition]="bindingVar">
+                    <router-outlet></router-outlet>
+            </div>
+      </mat-card>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+
 </div>

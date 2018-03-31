@@ -12,11 +12,17 @@ import { routerTransition } from './router.animations';
 
 import { AppComponent } from './app.component';
 import { InicioComponent } from './inicio/inicio.component';
+import { CrearComponent } from './crear/crear.component';
+import { ActualizarComponent } from './actualizar/actualizar.component';
+import { RevisarComponent } from './revisar/revisar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    InicioComponent
+    InicioComponent,
+    CrearComponent,
+    ActualizarComponent,
+    RevisarComponent
   ],
   imports: [
     BrowserModule,
