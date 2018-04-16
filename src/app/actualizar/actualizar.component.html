@@ -1,3 +1,45 @@
-<p>
-  actualizar works!
-</p>
+<mat-card class="card-central">
+  <div class="wrapper" align="center">
+
+      <form (ngSubmit)="onSubmit()" [formGroup]="domoUpdateForm">
+        <div fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center">
+
+          <mat-form-field>
+            <mat-select placeholder="Seleccione el Domo" formControlName="idForm" [(ngModel)]="id">
+              <mat-option *ngFor="let domo of _domosArray" [value]="domo.domoId">
+                {{ domo.domoId }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-select placeholder="Seleccione el Estado" formControlName="estadoForm" [(ngModel)]="estado">
+              <mat-option *ngFor="let estado of _estados" [value]="estado.status">
+                {{ estado.etiqueta }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <!-- <mat-form-field
+            class="example-full-width"
+            hintLabel="Campo obligatorio"
+            [hideRequiredMarker]="domoForm.value.hideRequired"
+            [floatLabel]="domoForm.value.floatLabel">
+            <mat-label>Ingrese el Domo ID</mat-label>
+            <input class="form-control" matInput maxlength="6" placeholder="DA0001" formControlName="domoId" required >
+          </mat-form-field> -->
+
+          <!-- <mat-form-field 
+            class="example-full-width">
+            <mat-label>Nuevo estado: </mat-label>
+            <input matInput placeholder="TA0001" formControlName="totemParent" required >
+          </mat-form-field> -->
+        </div>
+
+        <div class="button-row"  style="margin-top: 15%; margin-bottom: 5%">
+            <button type="submit" mat-raised-button class="btn btn-success" color="primary">Modificar</button>
+        </div>
+
+      </form>
+  </div>
+</mat-card>

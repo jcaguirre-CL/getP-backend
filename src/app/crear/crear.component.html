@@ -1,3 +1,89 @@
-<p>
-  crear works!
-</p>
+<mat-card class="card-central">
+  <div class="wrapper" align="center">
+
+      <form [formGroup]="domoForm" (ngSubmit)="onSubmit()">
+
+        <!-- <form class="example-form"> -->
+        <div fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center">
+
+          <mat-form-field
+            class="example-full-width"
+            hintLabel="Campo obligatorio"
+            [hideRequiredMarker]="domoForm.value.hideRequired"
+            [floatLabel]="domoForm.value.floatLabel">
+            <mat-label>Ingrese el Domo ID</mat-label>
+            <input class="form-control" matInput maxlength="6" placeholder="DA0001" formControlName="domoId" required >
+          </mat-form-field>
+
+          <mat-form-field 
+            class="example-full-width">
+            <mat-label>Totem asociado</mat-label>
+            <input matInput placeholder="TA0001" formControlName="totemParent" required >
+          </mat-form-field>
+        </div>
+
+        <mat-form-field 
+          class="example-full-width">
+          <mat-label>Ubicacion</mat-label>
+          <textarea matInput fxFlex="100%" placeholder="Detalles de la ubicacion" formControlName="ubicacionBrief" ></textarea>
+        </mat-form-field>
+
+        <div fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center">
+          <mat-form-field
+            class="example-full-width"
+            hintLabel="Campo obligatorio"
+            [hideRequiredMarker]="domoForm.value.hideRequired"
+            [floatLabel]="domoForm.value.floatLabel">
+            <mat-label>Latitud</mat-label>
+            <input class="form-control" matInput maxlength="6" formControlName="lat" required >
+          </mat-form-field>
+          <mat-form-field 
+            class="example-full-width">
+            <mat-label>Longitud</mat-label>
+            <input matInput formControlName="long" required >
+          </mat-form-field>
+        </div>
+
+        <!-- <mat-form-field
+        class="example-full-width">
+          <mat-checkbox formControlName="status">Estado: </mat-checkbox>
+        </mat-form-field> -->
+
+        <!-- <div fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center">
+            <mat-card class="card-picture" *ngFor="let picture of pictures">
+              <mat-card-title fxLayout.gt-xs="row" fxLayout.xs="column">
+                <span fxFlex="80%">{{picture.title}}</span>
+                <mat-icon fxFlex="10%">mode_edit</mat-icon>
+                <mat-icon fxFlex="10%">delete</mat-icon>
+              </mat-card-title>
+              <img mat-card-image [src]="picture.img">
+            </mat-card>
+          </div> -->
+
+        <div class="button-row"  style="margin-top: 15%; margin-bottom: 5%">
+            <button type="submit" mat-raised-button [disabled]="domoForm.pristine" class="btn btn-success" color="primary" routerLink="/crear">Enviar</button>
+        </div>
+        <!-- <mat-hint align="end">4 / 4</mat-hint> -->
+      
+      </form>
+
+
+      <!-- <mat-form-field 
+        [floatLabel]="options.value.floatLabel">
+        <mat-label>Both a label and a placeholder</mat-label>
+        <input matInput placeholder="Simple placeholder">
+      </mat-form-field> -->
+
+      <!-- <mat-form-field
+          [hideRequiredMarker]="options.value.hideRequired"
+          [floatLabel]="options.value.floatLabel">
+        <mat-select required>
+          <mat-option>-- None --</mat-option>
+          <mat-option value="option">Option</mat-option>
+        </mat-select>
+        <mat-placeholder><mat-icon>favorite</mat-icon> <b> Fancy</b> <i> placeholder</i></mat-placeholder>
+      </mat-form-field> -->
+    <!-- </div> -->
+
+  </div>
+</mat-card>
