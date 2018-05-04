@@ -6,7 +6,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 import { FlexLayoutModule } from '@angular/flex-layout';
-
+import { MatSnackBarModule } from '@angular/material';
 
 import { RouterModule, Routes } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
@@ -19,6 +19,7 @@ import { CrearComponent } from './crear/crear.component';
 import { ActualizarComponent } from './actualizar/actualizar.component';
 import { RevisarComponent } from './revisar/revisar.component';
 import { ApiService } from './api.service';
+import { SnackbarcustomComponent } from './snackbarcustom/snackbarcustom.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { ApiService } from './api.service';
     InicioComponent,
     CrearComponent,
     ActualizarComponent,
-    RevisarComponent
+    RevisarComponent,
+    SnackbarcustomComponent
   ],
   imports: [
     BrowserModule,
@@ -37,10 +39,14 @@ import { ApiService } from './api.service';
     ReactiveFormsModule,
     HttpClientModule,
     HttpModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    MatSnackBarModule
   ],
   providers: [ApiService],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [
+    SnackbarcustomComponent
+  ]
 })
 export class AppModule { }

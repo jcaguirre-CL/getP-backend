@@ -5,8 +5,8 @@ import { ApiService } from '../api.service';
 import { Subscription } from 'rxjs/Subscription';
 import { Observable } from 'rxjs/Observable';
 import { Domo, IDomos, DomoStatus } from '../data-model';
-// import { DomoStatus } from '../domostatus';
-
+import { MatSnackBar } from '@angular/material';
+import { SnackbarcustomComponent } from '../snackbarcustom/snackbarcustom.component';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -29,8 +29,16 @@ export class ActualizarComponent implements OnInit {
   id: string;
   estado: boolean;
 
-  constructor(private fb: FormBuilder, private http: HttpClient, private apiService: ApiService) {
+  constructor(private fb: FormBuilder, private http: HttpClient, private apiService: ApiService, public snackBar: MatSnackBar) {
     this.recuperarDomosFromApi();
+  }
+
+  openSnackBar(message: string, action: string) {
+    SnackbarcustomComponent.message = 'something';
+    this.snackBar.openFromComponent(SnackbarcustomComponent, { duration: 5000, horizontalPosition: 'right',
+    verticalPosition: 'top', extraClasses: 'backgorund-green',
+    data: { message, action }
+    });
   }
 
   recuperarDomosFromApi(): void {
